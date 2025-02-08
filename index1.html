@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day with Kuromi! ❤</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #ff99cc, #ff6699);
+            font-family: 'Comic Sans MS', cursive;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff0066;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: fadeIn 2s ease-in;
+        }
+
+        .kuromi-img {
+            width: 250px;
+            margin: 20px;
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s;
+        }
+
+        .kuromi-img:hover {
+            transform: scale(1.1);
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 102, 0.3);
+            margin: 20px;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        .hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            animation: float 3s infinite linear;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .button {
+            background: #ff0066;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 20px;
+        }
+
+        .button:hover {
+            background: #cc0052;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255,0,102,0.5);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2em; }
+            .kuromi-img { width: 180px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts">
+        <div class="heart" style="left: 10%; top: 20%;">❤</div>
+        <div class="heart" style="left: 30%; top: 50%;">💖</div>
+        <div class="heart" style="left: 70%; top: 30%;">💝</div>
+        <div class="heart" style="left: 90%; top: 70%;">💕</div>
+    </div>
+
+    <div class="container">
+        <h1>Happy Valentine's Day! 💘</h1>
+        
+        <img src="https://images.app.goo.gl/VYmB9xMYJSmJzZ8j9" alt="Kuromi" class="kuromi-img">
+        <!-- Ganti URL gambar dengan link gambar Kuromi yang valid -->
+        
+        <div class="message-box">
+            <p>Dear My Special Someone,</p>
+        <p>You make my heart go doki-doki! 💖<br>
+        Will you be my Valentine? 💌</p>
+        </div>
+
+        <button class="button" onclick="showLove()">Click for Surprise! 🎀</button>
+        <p id="secretMessage" style="display: none;">I Luv You 3000! 💞</p>
+    </div>
+
+    <script>
+        function showLove() {
+            const message = document.getElementById('secretMessage');
+            message.style.display = 'block';
+            message.style.animation = 'fadeIn 1.5s';
+            
+            // Tambah efek hujan hati
+            for(let i = 0; i < 20; i++) {
+                createHeart();
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.querySelector('.hearts').appendChild(heart);
+            
+            // Hapus elemen setelah animasi selesai
+            setTimeout(() => heart.remove(), 5000);
+        }
+    </script>
+</body>
+</html>
