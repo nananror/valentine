@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Valentine</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        .message-container { margin-top: 20px; }
+        input { margin-top: 10px; padding: 5px; }
+        button { margin-top: 10px; padding: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Selamat Datang di Game Ucapan Valentine!</h1>
+    <p>Masukkan namamu:</p>
+    <input type="text" id="nameInput">
+    <button onclick="showMessage()">Lihat Ucapan</button>
+    
+    <div id="message" class="message-container" style="display:none;">
+        <p id="valentineMessage"></p>
+    </div>
+    
+    <script>
+        function showMessage() {
+            let playerName = document.getElementById("nameInput").value;
+            if (playerName.trim() === "") {
+                alert("Masukkan namamu dulu!");
+                return;
+            }
+            let messages = [
+                `Selamat Hari Valentine, ${playerName}! Semoga hari ini penuh cinta dan kebahagiaan!`,
+                `Hai ${playerName}, jangan lupa tersenyum dan sebarkan cinta hari ini!`,
+                `Cinta adalah bahasa hati, dan hari ini adalah hari untuk merayakannya! Selamat Valentine, ${playerName}!`
+            ];
+            let randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            document.getElementById("valentineMessage").innerText = randomMessage;
+            document.getElementById("message").style.display = "block";
+        }
+    </script>
+</body>
+</html>
